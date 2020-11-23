@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.integrate import odeint
 
 def f(Y, t, a, b, c, d):
     y1, y2 = Y
