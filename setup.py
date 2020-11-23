@@ -6,7 +6,7 @@ setup(
     author='Ivan Rendo Barreiro',
     author_email='irendo@yahoo.es',
     packages=['imageode'],
-    install_requires=['numpy','matplotlib'], #more
+    install_requires=['numpy'], #more
     version='0.1',
     license='MIT',
     description='A package for plotting easily linear systems',
