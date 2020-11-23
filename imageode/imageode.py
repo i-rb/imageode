@@ -1,3 +1,6 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
 def f(Y, t, a, b, c, d):
     y1, y2 = Y
     return [a*y1+b*y2, c*y1+d*y2]
