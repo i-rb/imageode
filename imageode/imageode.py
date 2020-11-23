@@ -1,6 +1,7 @@
 import numpy as np
+import scipy.integrate as sp
 import matplotlib.pyplot as plt
-from scipy.integrate import odeint
+
 
 def f(Y, t, a, b, c, d):
     y1, y2 = Y
@@ -18,7 +19,7 @@ def lodemap(a,b,c,d):
         for j in range(NJ):
             x = Y1[i, j]
             y = Y2[i, j]
-            yprime = f([x, y], t, 1, 2, -2, 1)
+            yprime = f([x, y], t, a, b, c, d)
             u[i,j] = yprime[0]
             v[i,j] = yprime[1]
 
@@ -32,7 +33,7 @@ def lodemap(a,b,c,d):
     for y20 in [-0.5, 0.5, 1, -1, 1.5, -1.5]:
         tspan = np.linspace(0,5,100)
         y0 = [0.0, y20]
-        ys = odeint(f, y0, tspan, (a, b, c, d))
+        ys = sp.odeint(f, y0, tspan, (a, b, c, d))
         plt.plot(ys[:,0], ys[:,1], 'b-', linewidth=1) # path
     plt.xlim(left, right)  
     plt.ylim(up, down)
